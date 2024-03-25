@@ -1,23 +1,17 @@
-#include "LabCycle2-11.h"
+#include "Factorial.h"
 
-int recursiveFunction(int n) {
-    stack<int> callStack;
+int FactorialCalculator::factorialWithStack(int n) {
+    std::stack<int> stack;
+    stack.push(n);
 
-    callStack.push(n);
-
-    int result = 1; 
-
-    while (!callStack.empty()) {
-        int currentN = callStack.top();
-        callStack.pop();
-
-        if (currentN == 0) {
-            result = 1; 
-        } else {
-            callStack.push(currentN - 1);
-            callStack.push(currentN - 1);
+    int result = 1;
+    while (!stack.empty()) {
+        int current = stack.top();
+        stack.pop();
+        if (current > 1) {
+            stack.push(current - 1);
+            result *= current;
         }
     }
-
     return result;
 }
