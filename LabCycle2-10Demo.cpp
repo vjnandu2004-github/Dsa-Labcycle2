@@ -1,15 +1,11 @@
-#include "LabCycle2-10.cpp"
+#include <iostream>
+#include "Factorial.cpp"
 
 int main() {
-    string expression;
-    cout << "Enter the bracket expression: ";
-    getline(cin, expression);
-
-    if (isBalanced(expression)) {
-        cout << "The expression is balanced." << endl;
-    } else {
-        cout << "The expression is not balanced." << endl;
-    }
-
+    FactorialCalculator calculator;
+    int x;
+    std::cout<<"Enter the number to find the factorial";
+    std::cin>>x;
+    std::cout << calculator.factorialWithStack(x) << std::endl; 
     return 0;
 }
