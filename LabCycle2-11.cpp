@@ -1,4 +1,4 @@
-#include "Factorial.h"
+#include "LabCycle2-11.h"
 
 int FactorialCalculator::factorialWithStack(int n) {
     std::stack<int> stack;
