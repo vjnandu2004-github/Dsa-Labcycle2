@@ -1,12 +1,11 @@
-#include "LabCycle2-11.cpp"
+#include <iostream>
+#include "Factorial.cpp"
 
 int main() {
-    int n;
-    cout << "Enter the value of n: ";
-    cin >> n;
-
-    int result = recursiveFunction(n);
-    cout << "Result: " << result << endl;
-
+    FactorialCalculator calculator;
+    int x;
+    std::cout<<"Enter the number to find the factorial";
+    std::cin>>x;
+    std::cout << calculator.factorialWithStack(x) << std::endl; 
     return 0;
 }
