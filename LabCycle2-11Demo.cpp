@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Factorial.cpp"
+#include "LabCycle2-11.cpp"
 
 int main() {
     FactorialCalculator calculator;
