@@ -1,7 +1,11 @@
-#include <iostream>
+#ifndef FACTORIAL_H
+#define FACTORIAL_H
+
 #include <stack>
 
-using namespace std;
+class FactorialCalculator {
+public:
+    int factorialWithStack(int n);
+};
 
-int recursiveFunction(int n);
-
+#endif // FACTORIAL_H
