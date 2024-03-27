@@ -1,7 +1,12 @@
-#include <iostream>
-#include <stack>
+#ifndef POSTFIX_EVALUATOR_H
+#define POSTFIX_EVALUATOR_H
+
 #include <string>
+#include <stack>
 
-using namespace std;
+class PostfixEvaluator {
+public:
+    int evaluatePostfix(std::string exp);
+};
 
-int evaluatePostfix(const string& postfix);
+#endif
