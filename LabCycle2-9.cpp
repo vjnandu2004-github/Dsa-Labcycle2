@@ -1,40 +1,31 @@
-#include "LabCycle2-9.h"
-#include <stack>
-#include <cctype>
+#include "postfix_evaluator.h"
 
-bool isOperator(char c) {
-    return c == '+' || c == '-' || c == '*' || c == '/';
-}
-
-int performOperation(char op, int operand1, int operand2) {
-    switch (op) {
-        case '+':
-            return operand1 + operand2;
-        case '-':
-            return operand1 - operand2;
-        case '*':
-            return operand1 * operand2;
-        case '/':
-            return operand1 / operand2;
-        default:
-            return 0; 
-    }
-}
-
-int evaluatePostfix(const string& postfix) {
-    stack<int> operands;
-
-    for (char c : postfix) {
-        if (isdigit(c)) {
-            operands.push(c - '0'); 
-        } else if (isOperator(c)) {
-            int operand2 = operands.top();
-            operands.pop();
-            int operand1 = operands.top();
-            operands.pop();
-            operands.push(performOperation(c, operand1, operand2));
+int PostfixEvaluator::evaluatePostfix(std::string exp) {
+    std::stack<int> st;
+    
+    for (int i = 0; i < exp.size(); ++i) {
+        if (isdigit(exp[i]))
+            st.push(exp[i] - '0');
+        else {
+            int val1 = st.top();
+            st.pop();
+            int val2 = st.top();
+            st.pop();
+            switch (exp[i]) {
+                case '+':
+                    st.push(val2 + val1);
+                    break;
+                case '-':
+                    st.push(val2 - val1);
+                    break;
+                case '*':
+                    st.push(val2 * val1);
+                    break;
+                case '/':
+                    st.push(val2 / val1);
+                    break;
+            }
         }
     }
-
-    return operands.top();
+    return st.top();
 }
