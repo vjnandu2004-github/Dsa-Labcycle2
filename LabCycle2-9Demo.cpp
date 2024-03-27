@@ -1,12 +1,14 @@
-#include "LabCycle2-9.cpp"
+#include "postfix_evaluator.cpp"
+#include <iostream>
+#include <string>
 
 int main() {
-    string postfix;
-    cout << "Enter the postfix expression: ";
-    cin >> postfix;
-
-    int result = evaluatePostfix(postfix);
-    cout << "Result: " << result << endl;
-
+    PostfixEvaluator evaluator;
+    std::string exp;
+    
+    std::cout << "Enter a postfix expression: ";
+    std::getline(std::cin, exp);
+    
+    std::cout << "Postfix evaluation: " << evaluator.evaluatePostfix(exp) << std::endl;
     return 0;
 }
